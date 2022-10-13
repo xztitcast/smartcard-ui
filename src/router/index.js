@@ -85,7 +85,13 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-/**
+/*router.afterEach((to, from) => {
+  if(from.path != '/login' && from.path != '/' && to.path == '/login'){
+    window.location.reload()
+  }
+})/*
+
+/**0
  * 判断当前路由类型, global: 全局路由, main: 主入口路由
  * @param {*} route 当前路由
  */

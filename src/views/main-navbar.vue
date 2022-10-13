@@ -101,7 +101,8 @@
           }).then(({data}) => {
             if (data && data.code === 0) {
               clearLoginInfo()
-              this.$router.push({ name: 'login' })
+              this.$router.replace({ name: 'login' })
+              window.location.reload()
             }
           })
         }).catch(() => {})

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import axios from 'axios'
-import router from '@/router'
 import qs from 'qs'
 import merge from 'lodash/merge'
 import { clearLoginInfo } from '@/utils'
@@ -27,7 +26,8 @@ http.interceptors.request.use(config => {
 http.interceptors.response.use(response => {
   if (response.data && response.data.code === 401) { // 401, token失效
     clearLoginInfo()
-    router.push({ name: 'login' })
+    this.$router.replace({ name: 'login' })
+    window.location.reload()
   }
   return response
 }, error => {
